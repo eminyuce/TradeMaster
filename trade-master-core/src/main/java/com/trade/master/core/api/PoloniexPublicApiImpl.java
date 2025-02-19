@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
-import com.stock.ticker.client.HTTPClient;
+import com.stock.ticker.client.StockHttpClient;
 import com.trade.master.core.model.PoloniexChart;
 import com.trade.master.core.model.PoloniexTicker;
 import com.trade.master.core.model.PoloniexTrade;
@@ -33,7 +33,7 @@ public class PoloniexPublicApiImpl implements PoloniexPublicApi {
 
     private static final String PUBLIC_URL = "https://poloniex.com/public?";
     @Autowired
-    private HTTPClient client;
+    private StockHttpClient client;
     private ObjectMapper objectMapper;
     public static final String DATE_FORMAT_STR = "yyyy-MM-dd HH:mm:ss";
 

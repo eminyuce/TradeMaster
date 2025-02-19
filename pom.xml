@@ -15,7 +15,7 @@
 
     <packaging>pom</packaging>
 
-    <name>trade-master</name>
+    <name>Stock Market Simulation Game</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -42,8 +42,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
-            <!-- JUnit BOM for managing JUnit versions -->
             <dependency>
                 <groupId>org.junit</groupId>
                 <artifactId>junit-bom</artifactId>
@@ -51,15 +49,10 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
-
-
-
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-actuator</artifactId>
             </dependency>
-
-
         </dependencies>
     </dependencyManagement>
 

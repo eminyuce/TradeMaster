@@ -15,6 +15,7 @@ import org.apache.hc.core5.http.message.BasicNameValuePair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -25,12 +26,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * Poloniex Trading API client rewritten to use Java 17 HttpClient.
- *
- * @author David
- */
 @Slf4j
+@Component
 public class PoloniexTradingApiImpl implements PoloniexTradingApi {
     private static final Logger logger = LoggerFactory.getLogger(PoloniexTradingApiImpl.class);
     private static final Logger operationlogger = LoggerFactory.getLogger("PoloniexOperation");

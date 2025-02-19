@@ -8,10 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import java.math.BigDecimal;
 import java.util.List;
 
-/**
- *
- * @author David
- */
 @Slf4j
 public class PoloniexExchangeService implements ExchangeService
 {

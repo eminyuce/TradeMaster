@@ -1,26 +1,22 @@
 package com.stock.ticker.client.poloniex;
 
 import com.stock.ticker.PriceDataAPIClient;
-import com.stock.ticker.client.HTTPClient;
+import com.stock.ticker.client.StockHttpClient;
 import lombok.extern.slf4j.Slf4j;
 
-/**
- *
- * @author David
- */
 @Slf4j
 public class PoloniexPublicAPIClient implements PriceDataAPIClient
 {
 
     private static final String PUBLIC_URL = "https://poloniex.com/public?";
-    private final HTTPClient client;
+    private final StockHttpClient client;
 
     public PoloniexPublicAPIClient()
     {
-        this.client = new HTTPClient();
+        this.client = new StockHttpClient();
     }
 
-    public PoloniexPublicAPIClient(HTTPClient client)
+    public PoloniexPublicAPIClient(StockHttpClient client)
     {
         this.client = client;
     }

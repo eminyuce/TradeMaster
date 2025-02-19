@@ -11,11 +11,11 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
-public class HTTPClient {
+public class StockHttpClient {
 
     private final HttpClient client;
 
-    public HTTPClient() {
+    public StockHttpClient() {
         this.client = HttpClient.newHttpClient();
     }
 

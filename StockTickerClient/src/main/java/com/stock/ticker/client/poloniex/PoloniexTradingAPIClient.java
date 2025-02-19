@@ -20,11 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Poloniex Trading API client rewritten to use Java 17 HttpClient.
- *
- * @author David
- */
 @Slf4j
 public class PoloniexTradingAPIClient implements TradingAPIClient {
 
