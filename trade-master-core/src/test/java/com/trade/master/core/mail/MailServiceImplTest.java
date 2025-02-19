@@ -62,7 +62,7 @@ public class MailServiceImplTest {
     public void sortingExample() throws Exception {
         int userId = 1;
         //User specific currency config list
-        BotUser user = botUserRepository.findOne(userId);
+        BotUser user = botUserRepository.getReferenceById(userId);
         PoloniexTradingApi poloniexTradingApi = new PoloniexTradingApiImpl(user);
 
         Map<String, PoloniexCompleteBalance> balancesMap=poloniexTradingApi.returnCompleteBalances();
@@ -82,7 +82,7 @@ public class MailServiceImplTest {
     public void calculateTradingBTCForEachCurrency() throws Exception {
         int userId = 1;
         //User specific currency config list
-        BotUser user = botUserRepository.findOne(userId);
+        BotUser user = botUserRepository.getReferenceById(userId);
 
         //Just get Buyable currencies from db.
         List<CurrencyConfig> currencyConfigs = currencyConfigRepository.findByBotUser((user))
