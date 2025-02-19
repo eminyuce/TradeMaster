@@ -1,13 +1,13 @@
 package com.trade.master.core.api;
 
-import com.stock.ticker.TradingAPIClient;
-import com.stock.ticker.client.poloniex.PoloniexExchangeService;
-import com.stock.ticker.client.poloniex.PoloniexTradingAPIClient;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.stock.ticker.TradingAPIClient;
+import com.stock.ticker.client.poloniex.PoloniexExchangeService;
+import com.stock.ticker.client.poloniex.PoloniexTradingAPIClient;
 import com.trade.master.core.entity.BotUser;
 import com.trade.master.core.model.*;
 import lombok.extern.slf4j.Slf4j;

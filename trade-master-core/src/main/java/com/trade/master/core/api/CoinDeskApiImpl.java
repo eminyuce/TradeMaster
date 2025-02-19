@@ -1,8 +1,8 @@
 package com.trade.master.core.api;
 
-import com.stock.ticker.client.HTTPClient;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.stock.ticker.client.HTTPClient;
 import com.trade.master.core.model.CoinDeskCurrentPrice;
 import com.trade.master.core.model.CoinDeskPrice;
 import lombok.extern.slf4j.Slf4j;

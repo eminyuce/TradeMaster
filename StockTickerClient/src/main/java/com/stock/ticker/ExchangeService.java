@@ -1,13 +1,7 @@
 package com.stock.ticker;
 
 
-import com.stock.ticker.data.model.poloniex.PoloniexChartData;
-import com.stock.ticker.data.model.poloniex.PoloniexCompleteBalance;
-import com.stock.ticker.data.model.poloniex.PoloniexFeeInfo;
-import com.stock.ticker.data.model.poloniex.PoloniexOpenOrder;
-import com.stock.ticker.data.model.poloniex.PoloniexOrderResult;
-import com.stock.ticker.data.model.poloniex.PoloniexTicker;
-import com.stock.ticker.data.model.poloniex.PoloniexTradeHistory;
+import com.stock.ticker.data.model.poloniex.*;
 
 import java.math.BigDecimal;
 import java.util.List;

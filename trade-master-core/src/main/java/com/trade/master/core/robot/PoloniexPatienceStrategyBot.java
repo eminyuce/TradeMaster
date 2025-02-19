@@ -16,13 +16,13 @@ import com.trade.master.core.repository.CurrencyOrderRepository;
 import com.trade.master.core.repository.TradeHistoryTrackRepository;
 import com.trade.master.core.repository.UserBotRepository;
 import com.trade.master.core.service.TradeTrackerServiceImpl;
+import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import jakarta.annotation.PostConstruct;
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;

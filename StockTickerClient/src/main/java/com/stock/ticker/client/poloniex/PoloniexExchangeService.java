@@ -2,17 +2,11 @@ package com.stock.ticker.client.poloniex;
 
 import com.stock.ticker.ExchangeService;
 import com.stock.ticker.data.map.poloniex.PoloniexDataMapper;
-import com.stock.ticker.data.model.poloniex.PoloniexChartData;
-import com.stock.ticker.data.model.poloniex.PoloniexCompleteBalance;
-import com.stock.ticker.data.model.poloniex.PoloniexFeeInfo;
-import com.stock.ticker.data.model.poloniex.PoloniexOpenOrder;
-import com.stock.ticker.data.model.poloniex.PoloniexOrderResult;
-import com.stock.ticker.data.model.poloniex.PoloniexTicker;
-import com.stock.ticker.data.model.poloniex.PoloniexTradeHistory;
+import com.stock.ticker.data.model.poloniex.*;
+import lombok.extern.slf4j.Slf4j;
+
 import java.math.BigDecimal;
 import java.util.List;
-
-import lombok.extern.slf4j.Slf4j;
 
 /**
  *

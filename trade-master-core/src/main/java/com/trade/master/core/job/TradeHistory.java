@@ -7,11 +7,11 @@ import com.trade.master.core.model.PoloniexTrade;
 import com.trade.master.core.repository.AnalysisCurrencyConfigRepository;
 import com.trade.master.core.repository.TradeHistoryRecordRepository;
 import com.trade.master.core.robot.PolBot;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import jakarta.annotation.PostConstruct;
 import java.math.BigDecimal;
 import java.util.List;
 

@@ -2,7 +2,6 @@ package com.stock.ticker.client.poloniex;
 
 import com.stock.ticker.PriceDataAPIClient;
 import com.stock.ticker.client.HTTPClient;
-
 import lombok.extern.slf4j.Slf4j;
 
 /**

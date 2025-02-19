@@ -1,20 +1,8 @@
 package com.stock.ticker.data.map.poloniex;
 
-import com.stock.ticker.data.model.poloniex.PoloniexChartData;
-import com.stock.ticker.data.model.poloniex.PoloniexCompleteBalance;
-import com.stock.ticker.data.model.poloniex.PoloniexFeeInfo;
-import com.stock.ticker.data.model.poloniex.PoloniexOpenOrder;
-import com.stock.ticker.data.model.poloniex.PoloniexOrderResult;
-import com.stock.ticker.data.model.poloniex.PoloniexTicker;
-import com.stock.ticker.data.model.poloniex.PoloniexTradeHistory;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
+import com.stock.ticker.data.model.poloniex.*;
 
 import java.lang.reflect.Type;
 import java.time.LocalDateTime;

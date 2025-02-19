@@ -1,11 +1,11 @@
 package com.trade.master.core.api;
 
-import com.stock.ticker.client.HTTPClient;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.stock.ticker.client.HTTPClient;
 import com.trade.master.core.model.PoloniexChart;
 import com.trade.master.core.model.PoloniexTicker;
 import com.trade.master.core.model.PoloniexTrade;

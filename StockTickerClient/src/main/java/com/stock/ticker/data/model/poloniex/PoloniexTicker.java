@@ -1,6 +1,7 @@
 package com.stock.ticker.data.model.poloniex;
 
 import com.google.gson.Gson;
+
 import java.math.BigDecimal;
 
 /**

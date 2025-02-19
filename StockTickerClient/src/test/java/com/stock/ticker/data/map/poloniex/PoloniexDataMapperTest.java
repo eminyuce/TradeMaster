@@ -3,10 +3,10 @@ package com.stock.ticker.data.map.poloniex;
 import com.stock.ticker.data.model.poloniex.PoloniexFeeInfo;
 import com.stock.ticker.data.model.poloniex.PoloniexOrderResult;
 import com.stock.ticker.data.model.poloniex.PoloniexTradeHistory;
+import org.junit.jupiter.api.Test;
+
 import java.math.BigDecimal;
 import java.util.List;
-
-import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 

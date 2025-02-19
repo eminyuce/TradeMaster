@@ -3,12 +3,12 @@ package com.stock.ticker.example;
 import com.stock.ticker.ExchangeService;
 import com.stock.ticker.client.poloniex.PoloniexExchangeService;
 import com.stock.ticker.data.model.poloniex.PoloniexChartData;
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Properties;
-
-import lombok.extern.slf4j.Slf4j;
 
 /**
  *
