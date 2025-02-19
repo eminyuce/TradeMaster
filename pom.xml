@@ -10,7 +10,7 @@
 
     <modules>
         <module>trade-master-core</module>
-        <module>StockTickerClient</module>
+        <module>com-stock-ticker</module>
     </modules>
 
     <packaging>pom</packaging>

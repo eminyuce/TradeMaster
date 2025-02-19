@@ -7,8 +7,8 @@
         <artifactId>trademaster</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
+    <modelVersion>4.0.0</modelVersion>
     <artifactId>trade-master-core</artifactId>
 
 
@@ -115,10 +115,12 @@
         </dependency>
 
 
+
+
         <dependency>
-            <groupId>com.stock.ticker.client</groupId>
-            <artifactId>StockTickerClient</artifactId>
-            <version>0.0.2-SNAPSHOT</version>
+            <groupId>com.trade.master</groupId>
+            <artifactId>com-stock-ticker</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
 
