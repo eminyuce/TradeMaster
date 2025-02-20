@@ -1,8 +1,17 @@
 package com.trade.master.core.model;
 
+import lombok.*;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@EqualsAndHashCode
+@Builder
 public class PoloniexTrade {
     private Long globalTradeID;
     private String tradeID;
@@ -28,98 +37,4 @@ public class PoloniexTrade {
         this.fee = fee;
     }
 
-    public PoloniexTrade() {
-    }
-
-    public Long getGlobalTradeID() {
-        return globalTradeID;
-    }
-
-    public void setGlobalTradeID(Long globalTradeID) {
-        this.globalTradeID = globalTradeID;
-    }
-
-    public String getTradeID() {
-        return tradeID;
-    }
-
-    public void setTradeID(String tradeID) {
-        this.tradeID = tradeID;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public BigDecimal getRate() {
-        return rate;
-    }
-
-    public void setRate(BigDecimal rate) {
-        this.rate = rate;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
-    public BigDecimal getTotal() {
-        return total;
-    }
-
-    public void setTotal(BigDecimal total) {
-        this.total = total;
-    }
-
-    public BigDecimal getFee() {
-        return fee;
-    }
-
-    public void setFee(BigDecimal fee) {
-        this.fee = fee;
-    }
-
-    public String getOrderNumber() {
-        return orderNumber;
-    }
-
-    public void setOrderNumber(String orderNumber) {
-        this.orderNumber = orderNumber;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    @Override
-    public String toString() {
-        return "PoloniexTrade{" +
-                "globalTradeID=" + globalTradeID +
-                ", tradeID='" + tradeID + '\'' +
-                ", date=" + date +
-                ", rate=" + rate +
-                ", amount=" + amount +
-                ", type='" + type + '\'' +
-                '}';
-    }
 }

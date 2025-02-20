@@ -1,6 +1,7 @@
 package com.trade.master.core.entity;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -8,77 +9,25 @@ import java.io.Serializable;
  * Created by habanoz on 22.04.2017.
  */
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@EqualsAndHashCode
+@Builder
 public class UserBot implements Serializable {
-    private Integer id;
-    private BotUser user;
-    private Bot bot;
-    private boolean active;
-
-    public UserBot() {
-    }
-
-    public UserBot(BotUser user, Bot bot) {
-        this.user = user;
-        this.bot = bot;
-        this.active = true;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer getId() {
-        return id;
-    }
+    private Integer id;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    @JoinColumn(unique = true)
     @OneToOne
-    public BotUser getUser() {
-        return user;
-    }
-
-    public void setUser(BotUser user) {
-        this.user = user;
-    }
+    @JoinColumn(unique = true)
+    private BotUser user;
 
     @ManyToOne
-    public Bot getBot() {
-        return bot;
-    }
+    private Bot bot;
 
-    public void setBot(Bot bot) {
-        this.bot = bot;
-    }
-
-    public boolean getActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        UserBot userBot = (UserBot) o;
-
-        if (active != userBot.active) return false;
-        if (id != null ? !id.equals(userBot.id) : userBot.id != null) return false;
-        if (user != null ? !user.equals(userBot.user) : userBot.user != null) return false;
-        return bot != null ? bot.equals(userBot.bot) : userBot.bot == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (user != null ? user.hashCode() : 0);
-        result = 31 * result + (bot != null ? bot.hashCode() : 0);
-        result = 31 * result + (active ? 1 : 0);
-        return result;
-    }
+    private boolean active;
 }

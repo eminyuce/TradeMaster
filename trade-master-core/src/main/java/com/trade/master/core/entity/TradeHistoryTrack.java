@@ -2,37 +2,20 @@ package com.trade.master.core.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import lombok.*;
 
 /**
  * Created by huseyina on 4/19/2017.
  */
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@EqualsAndHashCode
+@Builder
 public class TradeHistoryTrack {
     private Integer userId;
     private Long lastTimeStampInSec;
-
-    public TradeHistoryTrack(Integer userId, Long lastTimeStamp) {
-        this.userId = userId;
-        this.lastTimeStampInSec = lastTimeStamp;
-    }
-
-    public TradeHistoryTrack() {
-    }
-
-    @Id
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public Long getLastTimeStampInSec() {
-        return lastTimeStampInSec;
-    }
-
-    public void setLastTimeStampInSec(Long lastTimeStampInSec) {
-        this.lastTimeStampInSec = lastTimeStampInSec;
-    }
 }
