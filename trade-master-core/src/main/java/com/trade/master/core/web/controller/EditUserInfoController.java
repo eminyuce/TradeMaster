@@ -7,8 +7,6 @@ import com.trade.master.core.repository.BotRepository;
 import com.trade.master.core.repository.BotUserRepository;
 import com.trade.master.core.repository.UserBotRepository;
 import com.trade.master.core.repository.UserRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,7 +22,6 @@ import java.util.Map;
  */
 @Controller
 public class EditUserInfoController {
-    private static final Logger logger = LoggerFactory.getLogger(EditUserInfoController.class);
 
     @Autowired
     private UserRepository userRepository;

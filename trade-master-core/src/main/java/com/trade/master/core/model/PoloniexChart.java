@@ -1,6 +1,5 @@
 package com.trade.master.core.model;
 
-import com.google.gson.Gson;
 import lombok.*;
 
 import java.math.BigDecimal;

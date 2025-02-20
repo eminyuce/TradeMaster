@@ -13,8 +13,7 @@ import com.trade.master.core.repository.CurrencyConfigRepository;
 import com.trade.master.core.repository.TradeHistoryTrackRepository;
 import com.trade.master.core.service.TradeTrackerServiceImpl;
 import jakarta.annotation.PostConstruct;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -31,8 +30,8 @@ import java.util.Map;
  * Created by habanoz on 05.04.2017.
  */
 @Component
+@Slf4j
 public class CascadedPatienceStrategyBot extends PoloniexPatienceStrategyBot {
-    private static final Logger logger = LoggerFactory.getLogger(PoloniexTrade.class);
 
     @Autowired
     private CurrencyConfigRepository currencyConfigRepository;
@@ -65,12 +64,12 @@ public class CascadedPatienceStrategyBot extends PoloniexPatienceStrategyBot {
 
     @Override
     public void startTradingForEachUser(BotUser user, Map<String, PoloniexTicker> tickerMap) {
-        logger.info("Started for user {}", user);
+        log.info("Started for user {}", user);
 
         List<CurrencyConfig> currencyConfigs = getCurrencyConfigs(user);
 
         if (currencyConfigs.isEmpty()) {
-            logger.info("No currency config for user {}, returning ...", user);
+            log.info("No currency config for user {}, returning ...", user);
             return;
         }
 
@@ -137,7 +136,7 @@ public class CascadedPatienceStrategyBot extends PoloniexPatienceStrategyBot {
 
         sendNotificationMail(user, completeBalanceMap, recentHistoryMap, orderResults);
 
-        logger.info("Completed for user {}", user);
+        log.info("Completed for user {}", user);
     }
 
 }

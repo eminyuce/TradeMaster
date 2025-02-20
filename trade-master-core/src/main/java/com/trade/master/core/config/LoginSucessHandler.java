@@ -6,6 +6,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
@@ -18,6 +19,7 @@ import java.util.Date;
  * Created by habanoz on 25.07.2017.
  */
 @Service
+@Slf4j
 public class LoginSucessHandler extends
         SavedRequestAwareAuthenticationSuccessHandler {
 

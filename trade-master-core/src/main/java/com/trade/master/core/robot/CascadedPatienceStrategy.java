@@ -5,8 +5,7 @@ import com.trade.master.core.model.Order;
 import com.trade.master.core.model.PoloniexChart;
 import com.trade.master.core.model.PoloniexOpenOrder;
 import com.trade.master.core.model.PoloniexTrade;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -19,8 +18,8 @@ import java.util.List;
  * <p>
  * Created by habanoz on 05.04.2017.
  */
+@Slf4j
 public class CascadedPatienceStrategy extends AbstractPolBotStrategy {
-    private static final Logger logger = LoggerFactory.getLogger(PoloniexTrade.class);
 
     public CascadedPatienceStrategy(CurrencyConfig currencyConfig, List<PoloniexChart> chartData, int timeFrame) {
         super(currencyConfig, chartData, timeFrame);

@@ -39,36 +39,6 @@ public class WebSecurityConfig  {
                         .permitAll() // Add anything here that has to bypass authentication.
                         // .requestMatchers("/aircraftDesc/**").hasAuthority(adminGroup)
                         .requestMatchers("/aircraftDesc/**").permitAll().requestMatchers("/airport/**").permitAll()
-                        .requestMatchers("/countries/**").permitAll().requestMatchers("/states/**").permitAll()
-                        .requestMatchers("/tmdStatusList/**").permitAll()
-                        .requestMatchers("/documentType/**").permitAll()
-                        .requestMatchers("/tmdFx/**").permitAll()
-                        .requestMatchers("/tmdProduct/**").permitAll()
-                        .requestMatchers("/tmdVacCodes/**").permitAll()
-                        .requestMatchers("/tmdICOBusinessUnit/**").permitAll()
-                        .requestMatchers("/tmdICOCVRulesLECC/**").permitAll()
-                        .requestMatchers("/tmdICOCVRulesACTMapping/**").permitAll()
-                        .requestMatchers("/analysisReport/**").permitAll()
-                        .requestMatchers("/txDGLQuarantineInvoices/**").permitAll()
-                        .requestMatchers("/txDP3QuarantineInvoice/**").permitAll()
-                        .requestMatchers("/tmdSettleStatusList/**").permitAll()
-                        .requestMatchers("/settleInvoiceHeader/**").permitAll()
-                        .requestMatchers("/tmdVat/**").permitAll()
-                        .requestMatchers("/tmdSettlementTypeList/**")
-
-                        .permitAll().requestMatchers("/tmdUserEntity/**").permitAll().requestMatchers("/tmdEntity/**")
-                        .permitAll().requestMatchers("/tmdUsersPermissions/**").permitAll()
-                        .requestMatchers("/tmdCalendar/**").permitAll()
-                        .requestMatchers("/browseTransaction/**").permitAll()
-                        .requestMatchers("/tmdICOAccount/**").permitAll()
-                        .requestMatchers("/tmdICOCostCenter/**").permitAll()
-                        .requestMatchers("/tmdICOProject/**").permitAll()
-                        .requestMatchers("/tmdICORegionAccountAssignmentlist/**").permitAll()
-                        .requestMatchers("/eboReport/**").permitAll()
-                        .requestMatchers("/txDP3ImportedTransactions/**").permitAll()
-                        .requestMatchers("/creditRequest/**").permitAll()
-
-
                         .anyRequest().authenticated())
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
         // .exceptionHandling((exception)-> exception
