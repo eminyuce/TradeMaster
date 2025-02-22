@@ -27,7 +27,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Slf4j
-@Component
 public class PoloniexTradingApiImpl implements PoloniexTradingApi {
     private static final Logger logger = LoggerFactory.getLogger(PoloniexTradingApiImpl.class);
     private static final Logger operationlogger = LoggerFactory.getLogger("PoloniexOperation");
