@@ -29,24 +29,34 @@ public class WebSecurityConfig  {
     }
 
     @Bean
-    protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-
-
-        http.csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers("/airportIds/exists/fedexAirportId/*", "/svcCodes/exists/fedexSvcCd/*",
-                                "/tankeringFuelPrices/criteriaSearch*", "/tankeringFuelPrices/search*")
-                        .permitAll() // Add anything here that has to bypass authentication.
-                        // .requestMatchers("/aircraftDesc/**").hasAuthority(adminGroup)
-                        .requestMatchers("/aircraftDesc/**").permitAll().requestMatchers("/airport/**").permitAll()
-                        .anyRequest().authenticated())
-                .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
-        // .exceptionHandling((exception)-> exception
-        // .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
-        // )
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .authorizeHttpRequests(authz -> authz
+                        .requestMatchers("/allusers", "/collectiveorder/*", "/currencyconfig/*", "/edituserinfo",
+                                "/editbotinfo", "/editbotuserinfo/*", "/mybalances/*", "/mycurrencies/*",
+                                "/orders/*")
+                        .hasRole("BOT")
+                        .requestMatchers("/tradehistory/*", "/analyse")
+                        .hasRole("ANALYSIS")
+                        .requestMatchers("/", "/home", "/DataTables/**", "/css/**", "/js/**", "/images/**", "/webjars/**")
+                        .permitAll()
+                        .anyRequest()
+                        .authenticated()
+                )
+                .formLogin(form -> form
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/", true)
+                        .successHandler(loginSucessHandler)
+                        .usernameParameter("username")
+                        .passwordParameter("password")
+                        .permitAll()
+                )
+                .logout(logout -> logout
+                        .logoutSuccessUrl("/")
+                        .permitAll()
+                );
 
         return http.build();
-
     }
 
     @Bean

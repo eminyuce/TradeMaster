@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+
+    <!-- Include Spring Boot's default logging configuration -->
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
-    <logger name="cookle.crawler.parser" level="DEBUG"/>
+
+    <!-- Logger configuration for a specific package/class at DEBUG level -->
+    <logger name="cookle.crawler.parser" level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <!-- Optional: Root logger configuration (optional, can use for other parts of the application) -->
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+    <!-- Console appender for outputting logs to the console -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
 </configuration>
