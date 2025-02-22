@@ -16,6 +16,9 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class CoinDeskApiImpl implements CoinDeskApi {
 
+    @Autowired
+    private ObjectMapper objectMapper;
+
     @Override
     public CoinDeskPrice getBtcPrice(String realCurrency) {
         return null;

@@ -14,8 +14,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.hc.core5.http.message.BasicNameValuePair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -28,9 +30,6 @@ import java.util.stream.Collectors;
 
 @Slf4j
 public class PoloniexTradingApiImpl implements PoloniexTradingApi {
-    private static final Logger logger = LoggerFactory.getLogger(PoloniexTradingApiImpl.class);
-    private static final Logger operationlogger = LoggerFactory.getLogger("PoloniexOperation");
-    public static final String DATE_FORMAT_STR = "yyyy-MM-dd HH:mm:ss";
 
     private BotUser botUser;
 
