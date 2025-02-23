@@ -1,8 +1,8 @@
 package com.trade.master.core.web.controller;
 
-import com.trade.master.core.api.PoloniexPublicApi;
-import com.trade.master.core.api.PoloniexTradingApi;
-import com.trade.master.core.api.PoloniexTradingApiImpl;
+import com.trade.master.core.api.BinancePublicApi;
+import com.trade.master.core.api.BinanceTradingApi;
+import com.trade.master.core.api.BinanceTradingApiImpl;
 import com.trade.master.core.entity.BotUser;
 import com.trade.master.core.entity.CurrencyCollectiveOrder;
 import com.trade.master.core.entity.CurrencyConfig;
@@ -47,7 +47,7 @@ public class OrdersController {
     private PublicPoloniexTickerRegistry publicRegistry;
 
     @Autowired
-    private PoloniexPublicApi publicApi;
+    private BinancePublicApi publicApi;
 
     @Autowired
     private CurrencyConfigRepository currencyConfigRepository;
@@ -109,7 +109,7 @@ public class OrdersController {
         BotUser botUser = botUserRepository.findByUserAndBuId(user, buid);
 
         Map<String, List<PoloniexOpenOrder>> openOrderMap = getOpenOrdersList(botUser);
-        PoloniexTradingApi tradingApi = new PoloniexTradingApiImpl(botUser);
+        BinanceTradingApi tradingApi = new BinanceTradingApiImpl(botUser);
         //let spring autowire marked attributes
         applicationContext.getAutowireCapableBeanFactory().autowireBean(tradingApi);
 
@@ -171,7 +171,7 @@ public class OrdersController {
     private Map<String, List<PoloniexOpenOrder>> getOpenOrdersList(BotUser botUser) {
 
         //create tradingApi instance for current user
-        PoloniexTradingApi tradingApi = new PoloniexTradingApiImpl(botUser);
+        BinanceTradingApi tradingApi = new BinanceTradingApiImpl(botUser);
         //let spring autowire marked attributes
         applicationContext.getAutowireCapableBeanFactory().autowireBean(tradingApi);
 
@@ -281,14 +281,14 @@ public class OrdersController {
         User user = userRepository.findByUserName(principal.getName());
         BotUser botUser = botUserRepository.findByUserAndBuId(user, buid);
 
-        PoloniexTradingApi tradingApi = new PoloniexTradingApiImpl(botUser);
+        BinanceTradingApi tradingApi = new BinanceTradingApiImpl(botUser);
 
         collectiveOrders(collectiveCurrencyOrder, tradingApi);
 
         return "redirect:/orders/openorders/" + buid;
     }
 
-    private void collectiveOrders(CurrencyCollectiveOrder collectiveCurrencyOrder, PoloniexTradingApi tradingApi) {
+    private void collectiveOrders(CurrencyCollectiveOrder collectiveCurrencyOrder, BinanceTradingApi tradingApi) {
 
         if (collectiveCurrencyOrder.getPriceSplitter() > 0 && collectiveCurrencyOrder.getTotalBtcAmount() > 0) {
             BigDecimal topPrice = new BigDecimal(collectiveCurrencyOrder.getTopPriceStr());

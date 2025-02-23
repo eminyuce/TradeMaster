@@ -1,9 +1,9 @@
 package com.trade.master.core.robot;
 
-import com.trade.master.core.api.PoloniexPublicApi;
-import com.trade.master.core.api.PoloniexPublicApiImpl;
-import com.trade.master.core.api.PoloniexTradingApi;
-import com.trade.master.core.api.PoloniexTradingApiImpl;
+import com.trade.master.core.api.BinancePublicApi;
+import com.trade.master.core.api.BinancePublicApiImpl;
+import com.trade.master.core.api.BinanceTradingApi;
+import com.trade.master.core.api.BinanceTradingApiImpl;
 import com.trade.master.core.entity.BotUser;
 import com.trade.master.core.entity.CurrencyConfig;
 import com.trade.master.core.mail.HtmlHelper;
@@ -74,9 +74,9 @@ public class CascadedPatienceStrategyBot extends PoloniexPatienceStrategyBot {
         }
 
         //create tradingApi instance for current user
-        PoloniexTradingApi tradingApi = new PoloniexTradingApiImpl(user);
+        BinanceTradingApi tradingApi = new BinanceTradingApiImpl(user);
 
-        PoloniexPublicApi publicApi = new PoloniexPublicApiImpl();
+        BinancePublicApi publicApi = new BinancePublicApiImpl();
 
         Map<String, List<PoloniexOpenOrder>> openOrderMap = tradingApi.returnOpenOrders();
         Map<String, BigDecimal> balanceMap = tradingApi.returnBalances();

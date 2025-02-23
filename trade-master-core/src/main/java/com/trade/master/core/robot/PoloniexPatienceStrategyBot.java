@@ -1,9 +1,9 @@
 package com.trade.master.core.robot;
 
-import com.trade.master.core.api.PoloniexPublicApi;
-import com.trade.master.core.api.PoloniexPublicApiImpl;
-import com.trade.master.core.api.PoloniexTradingApi;
-import com.trade.master.core.api.PoloniexTradingApiImpl;
+import com.trade.master.core.api.BinancePublicApi;
+import com.trade.master.core.api.BinancePublicApiImpl;
+import com.trade.master.core.api.BinanceTradingApi;
+import com.trade.master.core.api.BinanceTradingApiImpl;
 import com.trade.master.core.entity.BotUser;
 import com.trade.master.core.entity.CurrencyConfig;
 import com.trade.master.core.entity.CurrencyOrder;
@@ -37,7 +37,7 @@ public class PoloniexPatienceStrategyBot implements PolBot {
     private static final Logger logger = LoggerFactory.getLogger(PoloniexTrade.class);
 
     @Autowired
-    private PoloniexPublicApi publicApi;
+    private BinancePublicApi publicApi;
 
     @Autowired
     private CurrencyConfigRepository currencyConfigRepository;
@@ -94,9 +94,9 @@ public class PoloniexPatienceStrategyBot implements PolBot {
         }
 
         //create tradingApi instance for current user
-        PoloniexTradingApi tradingApi = new PoloniexTradingApiImpl(user);
+        BinanceTradingApi tradingApi = new BinanceTradingApiImpl(user);
 
-        PoloniexPublicApi publicApi = new PoloniexPublicApiImpl();
+        BinancePublicApi publicApi = new BinancePublicApiImpl();
 
         Map<String, List<PoloniexOpenOrder>> openOrderMap = tradingApi.returnOpenOrders();
         Map<String, BigDecimal> balanceMap = tradingApi.returnBalances();
@@ -188,7 +188,7 @@ public class PoloniexPatienceStrategyBot implements PolBot {
     }
 
     @Override
-    public void cancelOrders(PoloniexTradingApi tradingApi, List<PoloniexOpenOrder> openOrderList, PolStrategy patienceStrategy, Date now) {
+    public void cancelOrders(BinanceTradingApi tradingApi, List<PoloniexOpenOrder> openOrderList, PolStrategy patienceStrategy, Date now) {
         List<PoloniexOpenOrder> orders2Cancel = patienceStrategy.getOrdersToCancel(openOrderList, now);
 
         for (PoloniexOpenOrder order2Cancel : orders2Cancel) {
@@ -199,7 +199,7 @@ public class PoloniexPatienceStrategyBot implements PolBot {
     }
 
     @Override
-    public BigDecimal createOrders(BotUser user, PoloniexTradingApi tradingApi, BigDecimal btcBalance, List<PoloniexOrderResult> orderResults, List<Order> orders) {
+    public BigDecimal createOrders(BotUser user, BinanceTradingApi tradingApi, BigDecimal btcBalance, List<PoloniexOrderResult> orderResults, List<Order> orders) {
         //fulfill orders
         for (Order order : orders) {
             if (order.getType().equalsIgnoreCase(BUY_ACTION)) {
@@ -223,7 +223,7 @@ public class PoloniexPatienceStrategyBot implements PolBot {
     }
 
 
-    public PoloniexOrderResult createSellOrder(BotUser user, PoloniexTradingApi tradingApi, Order order) {
+    public PoloniexOrderResult createSellOrder(BotUser user, BinanceTradingApi tradingApi, Order order) {
 
         PoloniexOrderResult result = tradingApi.sell(order);
 
@@ -232,7 +232,7 @@ public class PoloniexPatienceStrategyBot implements PolBot {
         return result;
     }
 
-    public PoloniexOrderResult createBuyOrder(BotUser user, PoloniexTradingApi tradingApi, Order order) {
+    public PoloniexOrderResult createBuyOrder(BotUser user, BinanceTradingApi tradingApi, Order order) {
 
         PoloniexOrderResult result = tradingApi.buy(order);
 

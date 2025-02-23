@@ -36,7 +36,7 @@ public class PoloniexPublicApiImplTest {
 
     @Test
     public void returnTradeHistory() throws Exception {
-        PoloniexPublicApiImpl poloniexPublicApi=new PoloniexPublicApiImpl();
+        BinancePublicApiImpl poloniexPublicApi=new BinancePublicApiImpl();
         long end = System.currentTimeMillis() / 1000;
         long start = end - 60 * 10;
 

@@ -1,5 +1,8 @@
 package com.trade.master.core.config;
 
+import com.binance.connector.client.SpotClient;
+import com.binance.connector.client.impl.SpotClientImpl;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,6 +21,16 @@ import org.springframework.stereotype.Component;
 public class CommonConfig {
     public static final String DATE_FORMAT_STR = "yyyy-MM-dd HH:mm:ss";
 
+    @Value("${binance.api.key}")
+    private String apiKey;
+
+    @Value("${binance.secret.key}")
+    private String secretKey;
+
+    @Bean
+    public SpotClient binanceClient() {
+        return new SpotClientImpl(apiKey, secretKey);
+    }
     @Bean
     public ObjectMapper objectMapper() {
 

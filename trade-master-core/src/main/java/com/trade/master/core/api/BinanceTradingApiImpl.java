@@ -1,39 +1,31 @@
 package com.trade.master.core.api;
 
+import com.binance.connector.client.SpotClient;
+import com.binance.connector.client.exceptions.BinanceClientException;
+import com.binance.connector.client.exceptions.BinanceConnectorException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
-import com.stock.ticker.TradingAPIClient;
 import com.stock.ticker.client.poloniex.PoloniexExchangeService;
-import com.stock.ticker.client.poloniex.PoloniexTradingAPIClient;
 import com.trade.master.core.entity.BotUser;
 import com.trade.master.core.model.*;
+import lombok.CustomLog;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.hc.core5.http.message.BasicNameValuePair;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.math.BigDecimal;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Slf4j
-public class PoloniexTradingApiImpl implements PoloniexTradingApi {
+@Component
+public class BinanceTradingApiImpl implements BinanceTradingApi {
 
+    @Autowired
+    private SpotClient binanceClient;
     private BotUser botUser;
 
-    public PoloniexTradingApiImpl(BotUser botUser) {
+    public BinanceTradingApiImpl(BotUser botUser) {
         this.botUser = botUser;
     }
 
@@ -49,6 +41,27 @@ public class PoloniexTradingApiImpl implements PoloniexTradingApi {
 
     @Override
     public PoloniexOrderResult buy(Order order) {
+
+
+        try {
+            Map<String,Object> parameters = new LinkedHashMap<String,Object>();
+
+            parameters.put("symbol","BTCUSDT");
+            parameters.put("side", "SELL");
+            parameters.put("type", "LIMIT");
+            parameters.put("timeInForce", "GTC");
+            parameters.put("quantity", 0.01);
+            parameters.put("price", 9500);
+
+            String result = binanceClient.createTrade().newOrder(parameters);
+            log.info(result);
+        } catch (BinanceConnectorException e) {
+            log.error("fullErrMessage: {}", e.getMessage(), e);
+        } catch (BinanceClientException e) {
+            log.error("fullErrMessage: {} \nerrMessage: {} \nerrCode: {} \nHTTPStatusCode: {}",
+                    e.getMessage(), e.getErrMsg(), e.getErrorCode(), e.getHttpStatusCode(), e);
+        }
+
         return null;
     }
 

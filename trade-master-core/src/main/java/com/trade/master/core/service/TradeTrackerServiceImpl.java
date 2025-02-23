@@ -1,6 +1,6 @@
 package com.trade.master.core.service;
 
-import com.trade.master.core.api.PoloniexTradingApi;
+import com.trade.master.core.api.BinanceTradingApi;
 import com.trade.master.core.entity.BotUser;
 import com.trade.master.core.entity.TradeHistoryTrack;
 import com.trade.master.core.model.PoloniexTrade;
@@ -15,10 +15,10 @@ import java.util.Map;
 public class TradeTrackerServiceImpl implements TradeTrackerService {
 
     private TradeHistoryTrackRepository tradeHistoryTrackRepository;
-    private PoloniexTradingApi tradingApi;
+    private BinanceTradingApi tradingApi;
     private BotUser user;
 
-    public TradeTrackerServiceImpl(TradeHistoryTrackRepository tradeHistoryTrackRepository, PoloniexTradingApi poloniexTradingApi, BotUser user) {
+    public TradeTrackerServiceImpl(TradeHistoryTrackRepository tradeHistoryTrackRepository, BinanceTradingApi poloniexTradingApi, BotUser user) {
         this.tradeHistoryTrackRepository = tradeHistoryTrackRepository;
         this.tradingApi = poloniexTradingApi;
         this.user = user;

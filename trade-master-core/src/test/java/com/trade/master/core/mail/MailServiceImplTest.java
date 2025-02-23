@@ -1,8 +1,8 @@
 package com.trade.master.core.mail;
 
-import com.trade.master.core.api.PoloniexPublicApi;
-import com.trade.master.core.api.PoloniexTradingApi;
-import com.trade.master.core.api.PoloniexTradingApiImpl;
+import com.trade.master.core.api.BinancePublicApi;
+import com.trade.master.core.api.BinanceTradingApi;
+import com.trade.master.core.api.BinanceTradingApiImpl;
 import com.trade.master.core.entity.BotUser;
 import com.trade.master.core.entity.CurrencyConfig;
 import com.trade.master.core.model.PoloniexCompleteBalance;
@@ -36,7 +36,7 @@ public class MailServiceImplTest {
     MailService mailService;
 
     @Autowired
-    private PoloniexPublicApi publicApi;
+    private BinancePublicApi publicApi;
 
     @Autowired
     private CurrencyConfigRepository currencyConfigRepository;
@@ -63,7 +63,7 @@ public class MailServiceImplTest {
         int userId = 1;
         //User specific currency config list
         BotUser user = botUserRepository.getReferenceById(userId);
-        PoloniexTradingApi poloniexTradingApi = new PoloniexTradingApiImpl(user);
+        BinanceTradingApi poloniexTradingApi = new BinanceTradingApiImpl(user);
 
         Map<String, PoloniexCompleteBalance> balancesMap=poloniexTradingApi.returnCompleteBalances();
         balancesMap =         balancesMap.entrySet()
@@ -91,7 +91,7 @@ public class MailServiceImplTest {
                 .collect(Collectors.toList());
 
         //create tradingApi instance for current user
-        PoloniexTradingApi tradingApi = new PoloniexTradingApiImpl(user);
+        BinanceTradingApi tradingApi = new BinanceTradingApiImpl(user);
 
         Map<String, BigDecimal> balanceMap = tradingApi.returnBalances();
         BigDecimal btcBalance = balanceMap.get(BASE_CURR);  // Total available balance for that cycle.

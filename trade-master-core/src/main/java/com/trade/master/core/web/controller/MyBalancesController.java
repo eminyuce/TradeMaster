@@ -1,7 +1,7 @@
 package com.trade.master.core.web.controller;
 
-import com.trade.master.core.api.PoloniexTradingApi;
-import com.trade.master.core.api.PoloniexTradingApiImpl;
+import com.trade.master.core.api.BinanceTradingApi;
+import com.trade.master.core.api.BinanceTradingApiImpl;
 import com.trade.master.core.entity.BotUser;
 import com.trade.master.core.entity.User;
 import com.trade.master.core.model.PoloniexCompleteBalance;
@@ -49,7 +49,7 @@ public class MyBalancesController {
         BotUser botUser = botUserRepository.findByUserAndBuId(user, buid);
 
         //create tradingApi instance for current user
-        PoloniexTradingApi tradingApi = new PoloniexTradingApiImpl(botUser);
+        BinanceTradingApi tradingApi = new BinanceTradingApiImpl(botUser);
 
         Map<String, PoloniexCompleteBalance> completeBalanceMap = tradingApi.returnCompleteBalances();
         completeBalanceMap = completeBalanceMap.entrySet().stream().filter(map -> map.getValue().getBtcValue() > 0)

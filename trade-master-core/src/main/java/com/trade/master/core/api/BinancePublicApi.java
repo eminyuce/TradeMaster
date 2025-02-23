@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * Created by habanoz on 02.04.2017.
  */
-public interface PoloniexPublicApi {
+public interface BinancePublicApi {
     Map<String, PoloniexTicker> returnTicker();
 
     List<PoloniexTrade> returnTradeHistory(String currencyPair, long start, long end);

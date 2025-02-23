@@ -1,7 +1,7 @@
 package com.trade.master.core.robot;
 
-import com.trade.master.core.api.PoloniexTradingApi;
-import com.trade.master.core.api.PoloniexTradingApiImpl;
+import com.trade.master.core.api.BinanceTradingApi;
+import com.trade.master.core.api.BinanceTradingApiImpl;
 import com.trade.master.core.entity.BotUser;
 import com.trade.master.core.entity.CurrencyOrder;
 import com.trade.master.core.entity.UserBot;
@@ -73,7 +73,7 @@ public class PoloniexTradeTrackerBot {
 
     private void startTradingForEachUser(BotUser user) {
 
-        PoloniexTradingApi poloniexTradingApi = new PoloniexTradingApiImpl(user);
+        BinanceTradingApi poloniexTradingApi = new BinanceTradingApiImpl(user);
 
         TradeTrackerService tradeTrackerService = new TradeTrackerServiceImpl(tradeHistoryTrackRepository, poloniexTradingApi, user);
 

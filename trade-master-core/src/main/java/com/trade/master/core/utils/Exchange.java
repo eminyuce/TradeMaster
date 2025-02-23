@@ -1,7 +1,7 @@
 package com.trade.master.core.utils;
 
-import com.trade.master.core.api.PoloniexPublicApi;
-import com.trade.master.core.api.PoloniexPublicApiImpl;
+import com.trade.master.core.api.BinancePublicApi;
+import com.trade.master.core.api.BinancePublicApiImpl;
 import com.trade.master.core.entity.CurrencyConfig;
 import com.trade.master.core.model.Order;
 import com.trade.master.core.model.PoloniexChart;
@@ -38,7 +38,7 @@ public class Exchange {
     private Long periodInSec;
     private int currentIndex;
     private CurrencyConfig currencyConfig;
-    private PoloniexPublicApi publicApi = new PoloniexPublicApiImpl();
+    private BinancePublicApi publicApi = new BinancePublicApiImpl();
     public static final int TICKS = 10;
 
     public Exchange(BigDecimal btcBalance, float buyFeeRate, float sellFeeRate) {

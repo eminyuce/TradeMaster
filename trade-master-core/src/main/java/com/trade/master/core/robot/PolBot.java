@@ -1,6 +1,6 @@
 package com.trade.master.core.robot;
 
-import com.trade.master.core.api.PoloniexTradingApi;
+import com.trade.master.core.api.BinanceTradingApi;
 import com.trade.master.core.entity.BotUser;
 import com.trade.master.core.entity.CurrencyConfig;
 import com.trade.master.core.model.*;
@@ -25,7 +25,7 @@ public interface PolBot {
 
     void sendNotificationMail(BotUser user, Map<String, PoloniexCompleteBalance> completeBalanceMap, Map<String, List<PoloniexTrade>> recentHistoryMap, List<PoloniexOrderResult> orderResults);
 
-    void cancelOrders(PoloniexTradingApi tradingApi, List<PoloniexOpenOrder> openOrderList, PolStrategy patienceStrategy, Date now);
+    void cancelOrders(BinanceTradingApi tradingApi, List<PoloniexOpenOrder> openOrderList, PolStrategy patienceStrategy, Date now);
 
-    BigDecimal createOrders(BotUser user, PoloniexTradingApi tradingApi, BigDecimal btcBalance, List<PoloniexOrderResult> orderResults, List<Order> orders);
+    BigDecimal createOrders(BotUser user, BinanceTradingApi tradingApi, BigDecimal btcBalance, List<PoloniexOrderResult> orderResults, List<Order> orders);
 }

@@ -1,6 +1,6 @@
 package com.trade.master.core.registry;
 
-import com.trade.master.core.api.PoloniexPublicApi;
+import com.trade.master.core.api.BinancePublicApi;
 import com.trade.master.core.model.PoloniexTicker;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
@@ -20,7 +20,7 @@ import java.util.Optional;
 public class PublicPoloniexTickerRegistry {
     private static final Logger logger = LoggerFactory.getLogger(PublicPoloniexTickerRegistry.class);
     @Autowired
-    private PoloniexPublicApi publicApi;
+    private BinancePublicApi publicApi;
 
     private static final int REFRESH_PERIOD_IN_MILLIS = 60000;
 

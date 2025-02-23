@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Created by habanoz on 02.04.2017.
  */
-public interface PoloniexTradingApi {
+public interface BinanceTradingApi {
     PoloniexOrderResult buy(Order order);
 
     PoloniexOrderResult sell(Order order);

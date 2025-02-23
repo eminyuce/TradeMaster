@@ -1,6 +1,6 @@
 package com.trade.master.core.job;
 
-import com.trade.master.core.api.PoloniexPublicApi;
+import com.trade.master.core.api.BinancePublicApi;
 import com.trade.master.core.entity.AnalysisCurrencyConfig;
 import com.trade.master.core.entity.TradeHistoryRecord;
 import com.trade.master.core.model.PoloniexTrade;
@@ -22,7 +22,7 @@ import java.util.List;
 public class TradeHistory {
 
     @Autowired
-    private PoloniexPublicApi publicApi;
+    private BinancePublicApi publicApi;
 
     @Autowired
     private TradeHistoryRecordRepository tradeHistoryRecordRepository;
